@@ -11,7 +11,7 @@ const MapWithNoSSR = dynamic(() => import('./map'), {
 export function WorldMapComponent() {
   return (
     <div className="w-full h-screen p-4">
-      <h1 className="text-2xl font-bold mb-4">Hassan & Luthfiya's Travel Map</h1>
+      <h1 className="text-2xl font-bold mb-4">Hassan &amp; Luthfiya&apos;s Travel Map</h1>
       <div className="rounded-[40px] overflow-hidden border border-gray-200 h-[calc(100vh-120px)]">
         <MapWithNoSSR />
       </div>
