@@ -5,6 +5,7 @@ import L from 'leaflet'
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import { useEffect, useState } from 'react';
 
 // Fix for default markers - with proper typing
 delete (L.Icon.Default.prototype as { _getIconUrl?: () => string })._getIconUrl;
@@ -37,20 +38,58 @@ const countries = [
 ]
 
 export default function Map() {
+  const [mapConfig, setMapConfig] = useState({
+    center: [20, 0] as [number, number],
+    zoom: 2
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 768) { // Mobile breakpoint
+        setMapConfig({
+          center: [30, 0], // Adjust center point for better mobile view
+          zoom: 1.5 // Zoom out a bit more on mobile
+        });
+      } else {
+        setMapConfig({
+          center: [20, 0],
+          zoom: 2
+        });
+      }
+    };
+
+    // Set initial size
+    handleResize();
+
+    // Add resize listener
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <MapContainer
-      center={[20, 0]}
-      zoom={2}
-      style={{ height: "100%", width: "100%" }}
-      minZoom={2}
+      center={mapConfig.center}
+      zoom={mapConfig.zoom}
+      maxBounds={[[-90, -180], [90, 180]]}
+      maxBoundsViscosity={1.0}
+      style={{ 
+        height: "calc(100vh - 3rem)", // Reduced header space
+        width: "100vw", // Full viewport width
+        position: "fixed", // This helps prevent mobile scrolling issues
+        top: "3rem", // Align with header
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 1
+      }}
+      minZoom={1.5}
+      maxZoom={19}
+      worldCopyJump={true}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.esri.com/">Esri</a>'
-        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-      />
-      <TileLayer
-        url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-labels/{z}/{x}/{y}{r}.png"
-        attribution='&copy; <a href="https://stamen.com/">Stamen Design</a>'
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+        noWrap={true}
       />
       {countries.map(({ name, coordinates, dateRange, color }) => (
         <Marker 
@@ -58,6 +97,9 @@ export default function Map() {
           position={[coordinates[0], coordinates[1]]}
           icon={createColoredIcon(color)}
           eventHandlers={{
+            click: (e) => {
+              e.target.openPopup();
+            },
             mouseover: (e) => {
               e.target.openPopup();
             },
