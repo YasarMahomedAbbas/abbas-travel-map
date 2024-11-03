@@ -41,19 +41,17 @@ function LayerController() {
   const map = useMap();
 
   useEffect(() => {
-
     const savedLayer = localStorage.getItem('selectedMapLayer') || 'Street View';
 
     const layerControls = document.querySelectorAll('.leaflet-control-layers-base label span');
     
-
-    layerControls.forEach((layer: any) => {
+    layerControls.forEach((layer: Element) => {
       if (layer.textContent === savedLayer) {
-        layer.click();
+        (layer as HTMLElement).click();
       }
     });
 
-    map.on('baselayerchange', (e: any) => {
+    map.on('baselayerchange', (e: L.LayersControlEvent) => {
       localStorage.setItem('selectedMapLayer', e.name);
     });
   }, [map]);
