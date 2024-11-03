@@ -1,5 +1,5 @@
 import React from "react"
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, LayersControl, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
@@ -36,6 +36,33 @@ const countries = [
   { name: "India", coordinates: [20, 77], dateRange: "Jan 1, 2024 - Mar 31, 2024", color: "violet" },
   { name: "Russia", coordinates: [62, 94], dateRange: "Apr 1, 2024 - Jun 30, 2024", color: "yellow" },
 ]
+
+// Add this new component to handle layer changes
+function LayerController() {
+  const map = useMap();
+
+  useEffect(() => {
+    // Get saved layer from localStorage
+    const savedLayer = localStorage.getItem('selectedMapLayer') || 'Street View';
+
+    // Find all layer controls
+    const layerControls = document.querySelectorAll('.leaflet-control-layers-base label span');
+    
+    // Click the saved layer option
+    layerControls.forEach((layer: any) => {
+      if (layer.textContent === savedLayer) {
+        layer.click();
+      }
+    });
+
+    // Add event listener to save layer selection
+    map.on('baselayerchange', (e: any) => {
+      localStorage.setItem('selectedMapLayer', e.name);
+    });
+  }, [map]);
+
+  return null;
+}
 
 export default function Map() {
   const [mapConfig, setMapConfig] = useState({
@@ -86,11 +113,57 @@ export default function Map() {
       maxZoom={19}
       worldCopyJump={true}
     >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-        noWrap={true}
-      />
+      <LayerController />
+      <LayersControl position="topright">
+        <LayersControl.BaseLayer checked name="Street View">
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+            url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+            noWrap={true}
+          />
+        </LayersControl.BaseLayer>
+        
+        <LayersControl.BaseLayer name="Satellite View">
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+            noWrap={true}
+          />
+        </LayersControl.BaseLayer>
+
+        <LayersControl.BaseLayer name="Dark Mode">
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+            url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+            noWrap={true}
+          />
+        </LayersControl.BaseLayer>
+
+        <LayersControl.BaseLayer name="Terrain View">
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
+            noWrap={true}
+          />
+        </LayersControl.BaseLayer>
+
+        <LayersControl.BaseLayer name="Light Mode">
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+            url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+            noWrap={true}
+          />
+        </LayersControl.BaseLayer>
+
+        <LayersControl.BaseLayer name="OpenStreetMap Classic">
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            noWrap={true}
+          />
+        </LayersControl.BaseLayer>
+      </LayersControl>
+
       {countries.map(({ name, coordinates, dateRange, color }) => (
         <Marker 
           key={name} 
