@@ -6,6 +6,8 @@ import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import { useEffect, useState } from 'react';
+import { Country } from '../types/countries';
+import countriesData from '../data/countries.json';
 
 
 delete (L.Icon.Default.prototype as { _getIconUrl?: () => string })._getIconUrl;
@@ -17,25 +19,30 @@ L.Icon.Default.mergeOptions({
 
 
 const createColoredIcon = (color: string) => {
+  const colors: { [key: string]: string } = {
+    'red': 'red',
+    'blue': 'blue',
+    'green': 'green',
+    'yellow': 'yellow',
+    'orange': 'orange',
+    'purple': 'violet',
+    'gold': 'orange',
+    'teal': 'blue',
+    'pink': 'violet',
+    'brown': 'black'
+  };
+
+  const safeColor = colors[color.toLowerCase()] || 'blue';
+
   return new L.Icon({
-    iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${color}.png`,
+    iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${safeColor}.png`,
     shadowUrl: markerShadow.src,
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
-    shadowSize: [41, 41],
-    className: 'marker-icon'
+    shadowSize: [41, 41]
   });
 }
-
-const countries = [
-  { name: "United States", coordinates: [39, -98], dateRange: "Jan 1, 2023 - Mar 15, 2023", color: "red" },
-  { name: "Brazil", coordinates: [-10, -55], dateRange: "Apr 1, 2023 - Jun 30, 2023", color: "green" },
-  { name: "France", coordinates: [47, 2], dateRange: "Jul 1, 2023 - Sep 30, 2023", color: "blue" },
-  { name: "South Africa", coordinates: [-29, 25], dateRange: "Oct 1, 2023 - Dec 31, 2023", color: "orange" },
-  { name: "India", coordinates: [20, 77], dateRange: "Jan 1, 2024 - Mar 31, 2024", color: "violet" },
-  { name: "Russia", coordinates: [62, 94], dateRange: "Apr 1, 2024 - Jun 30, 2024", color: "yellow" },
-]
 
 function LayerController() {
   const map = useMap();
@@ -159,10 +166,13 @@ export default function Map() {
         </LayersControl.BaseLayer>
       </LayersControl>
 
-      {countries.map(({ name, coordinates, dateRange, color }) => (
+      {countriesData.cities.map(({ name, coordinates, dateRange, color }) => (
         <Marker 
-          key={name} 
-          position={[coordinates[0], coordinates[1]]}
+          key={`${name}-${coordinates.join(',')}`}
+          position={[
+            coordinates[0] + (Math.random() - 0.5) * 0.01,
+            coordinates[1] + (Math.random() - 0.5) * 0.01
+          ]}
           icon={createColoredIcon(color)}
           eventHandlers={{
             click: (e) => {
