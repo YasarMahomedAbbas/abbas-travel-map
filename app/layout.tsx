@@ -15,7 +15,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Travel Map",
-  description: "Track your travels around the world",
+  description: "🌟This application visualizes our travel journey, documenting past adventures. Watch as we explore the world of Hassan & Luthfiya Abbas, one destination at a time!",
 };
 
 export default function RootLayout({

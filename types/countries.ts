@@ -3,4 +3,6 @@ export interface Country {
   coordinates: [number, number];
   dateRange: string;
   color: string;
+  startDate: Date;
+  endDate?: Date;
 } 
