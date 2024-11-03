@@ -7,7 +7,7 @@ import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 import { useEffect, useState } from 'react';
 
-// Fix for default markers - with proper typing
+
 delete (L.Icon.Default.prototype as { _getIconUrl?: () => string })._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconUrl: markerIcon.src,
@@ -15,7 +15,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow.src,
 });
 
-// Create a function to generate colored icons
+
 const createColoredIcon = (color: string) => {
   return new L.Icon({
     iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${color}.png`,
@@ -37,25 +37,22 @@ const countries = [
   { name: "Russia", coordinates: [62, 94], dateRange: "Apr 1, 2024 - Jun 30, 2024", color: "yellow" },
 ]
 
-// Add this new component to handle layer changes
 function LayerController() {
   const map = useMap();
 
   useEffect(() => {
-    // Get saved layer from localStorage
+
     const savedLayer = localStorage.getItem('selectedMapLayer') || 'Street View';
 
-    // Find all layer controls
     const layerControls = document.querySelectorAll('.leaflet-control-layers-base label span');
     
-    // Click the saved layer option
+
     layerControls.forEach((layer: any) => {
       if (layer.textContent === savedLayer) {
         layer.click();
       }
     });
 
-    // Add event listener to save layer selection
     map.on('baselayerchange', (e: any) => {
       localStorage.setItem('selectedMapLayer', e.name);
     });
@@ -72,10 +69,10 @@ export default function Map() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 768) { // Mobile breakpoint
+      if (window.innerWidth <= 768) { 
         setMapConfig({
-          center: [30, 0], // Adjust center point for better mobile view
-          zoom: 1.5 // Zoom out a bit more on mobile
+          center: [30, 0], 
+          zoom: 1.5 
         });
       } else {
         setMapConfig({
@@ -100,10 +97,10 @@ export default function Map() {
       maxBounds={[[-90, -180], [90, 180]]}
       maxBoundsViscosity={1.0}
       style={{ 
-        height: "calc(100vh - 3rem)", // Reduced header space
-        width: "100vw", // Full viewport width
-        position: "fixed", // This helps prevent mobile scrolling issues
-        top: "3rem", // Align with header
+        height: "calc(100vh - 3rem)", 
+        width: "100vw", 
+        position: "fixed", 
+        top: "3rem",
         left: 0,
         right: 0,
         bottom: 0,
