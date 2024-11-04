@@ -26,10 +26,72 @@
     { "name": "San Francisco", "coordinates": [37.77, -122.41], "dateRange": "2013", "color": "blue", "startDate": "2013-01-01", "endDate": "2013-12-31" },
     { "name": "Las Vegas", "coordinates": [36.16, -115.13], "dateRange": "2013", "color": "blue", "startDate": "2013-01-01", "endDate": "2013-12-31" },
     { "name": "Los Angeles", "coordinates": [34.05, -118.24], "dateRange": "2013", "color": "blue", "startDate": "2013-01-01", "endDate": "2013-12-31" },
+    
     { "name": "Hanoi", "coordinates": [21.02, 105.83], "dateRange": "2014", "color": "pink", "startDate": "2014-01-01", "endDate": "2014-12-31" },
     { "name": "Ho Chi Minh", "coordinates": [10.82, 106.62], "dateRange": "2014", "color": "pink", "startDate": "2014-01-01", "endDate": "2014-12-31" },
     { "name": "Ha Long", "coordinates": [20.95, 107.08], "dateRange": "2014", "color": "pink", "startDate": "2014-01-01", "endDate": "2014-12-31" },
     { "name": "São Paulo", "coordinates": [-23.55, -46.63], "dateRange": "2015", "color": "brown", "startDate": "2015-01-01", "endDate": "2015-12-31" },
-    { "name": "Rio de Janeiro", "coordinates": [-22.90, -43.17], "dateRange": "2015", "color": "brown", "startDate": "2015-01-01", "endDate": "2015-12-31" }
+    { "name": "Rio de Janeiro", "coordinates": [-22.90, -43.17], "dateRange": "2015", "color": "brown", "startDate": "2015-01-01", "endDate": "2015-12-31" },
+
+    { "name": "Jeddah", "coordinates": [21.54, 39.17], "dateRange": "Sep 2018", "color": "purple", "startDate": "2018-09-01", "endDate": "2018-09-30" },
+    { "name": "Mecca", "coordinates": [21.42, 39.82], "dateRange": "Sep 2018", "color": "purple", "startDate": "2018-09-01", "endDate": "2018-09-30" },
+    { "name": "Medina", "coordinates": [24.47, 39.60], "dateRange": "Sep 2018", "color": "purple", "startDate": "2018-09-01", "endDate": "2018-09-30" },
+
+    { "name": "Moscow", "coordinates": [55.75, 37.62], "dateRange": "Sep 2018", "color": "indigo", "startDate": "2018-09-01", "endDate": "2018-09-30" },
+    { "name": "Kazan", "coordinates": [55.79, 49.12], "dateRange": "Sep 2018", "color": "indigo", "startDate": "2018-09-01", "endDate": "2018-09-30" },
+    { "name": "St Petersburg", "coordinates": [59.93, 30.33], "dateRange": "Sep 2018", "color": "indigo", "startDate": "2018-09-01", "endDate": "2018-09-30" },
+
+    { "name": "Istanbul", "coordinates": [41.01, 28.97], "dateRange": "Dec 2018", "color": "orange", "startDate": "2018-12-01", "endDate": "2018-12-31" },
+    { "name": "Antalya", "coordinates": [36.89, 30.70], "dateRange": "Dec 2018", "color": "orange", "startDate": "2018-12-01", "endDate": "2018-12-31" },
+
+    { "name": "Cairo", "coordinates": [30.04, 31.23], "dateRange": "Dec 2018", "color": "yellow", "startDate": "2018-12-01", "endDate": "2018-12-31" },
+
+    { "name": "Petra", "coordinates": [30.33, 35.44], "dateRange": "Dec 2018", "color": "green", "startDate": "2018-12-01", "endDate": "2018-12-31" },
+    { "name": "Amman", "coordinates": [31.95, 35.93], "dateRange": "Dec 2018", "color": "green", "startDate": "2018-12-01", "endDate": "2018-12-31" },
+
+    { "name": "Jerusalem", "coordinates": [31.77, 35.22], "dateRange": "Dec 2018", "color": "blue", "startDate": "2018-12-01", "endDate": "2018-12-31" },
+
+    { "name": "Zanzibar", "coordinates": [-6.16, 39.19], "dateRange": "Oct 2021", "color": "brown", "startDate": "2021-10-01", "endDate": "2021-10-31" },
+
+    { "name": "Shiraz", "coordinates": [29.59, 52.54], "dateRange": "Oct 2022", "color": "pink", "startDate": "2022-10-01", "endDate": "2022-10-31" },
+    { "name": "Isfahan", "coordinates": [32.65, 51.67], "dateRange": "Oct 2022", "color": "pink", "startDate": "2022-10-01", "endDate": "2022-10-31" },
+    { "name": "Tehran", "coordinates": [35.68, 51.42], "dateRange": "Oct 2022", "color": "pink", "startDate": "2022-10-01", "endDate": "2022-10-31" },
+
+    { "name": "Casa Blanca", "coordinates": [33.57, -7.65], "dateRange": "Dec 2022", "color": "orange", "startDate": "2022-12-01", "endDate": "2022-12-31" },
+    { "name": "Rabat", "coordinates": [34.02, -6.84], "dateRange": "Dec 2022", "color": "orange", "startDate": "2022-12-01", "endDate": "2022-12-31" },
+    { "name": "Marrakech", "coordinates": [31.63, -7.98], "dateRange": "Dec 2022", "color": "orange", "startDate": "2022-12-01", "endDate": "2022-12-31" },
+
+    { "name": "Tel Aviv", "coordinates": [32.08, 34.78], "dateRange": "Dec 2022", "color": "red", "startDate": "2022-12-01", "endDate": "2022-12-31" },
+
+    { "name": "Jerusalem", "coordinates": [31.77, 35.22], "dateRange": "Dec 2022", "color": "blue", "startDate": "2022-12-01", "endDate": "2022-12-31" },
+
+    { "name": "Istanbul", "coordinates": [41.01, 28.97], "dateRange": "Dec 2022", "color": "orange", "startDate": "2022-12-01", "endDate": "2022-12-31" },
+
+    { "name": "Samarkand", "coordinates": [39.65, 66.94], "dateRange": "Dec 2022", "color": "green", "startDate": "2022-12-01", "endDate": "2022-12-31" },
+    { "name": "Tashkent", "coordinates": [41.31, 69.24], "dateRange": "Dec 2022", "color": "green", "startDate": "2022-12-01", "endDate": "2022-12-31" },
+    { "name": "Bukhara", "coordinates": [39.77, 64.42], "dateRange": "Dec 2022", "color": "green", "startDate": "2022-12-01", "endDate": "2022-12-31" },
+
+    { "name": "Mauritius", "coordinates": [-20.16, 57.50], "dateRange": "Dec 2023", "color": "teal", "startDate": "2023-12-01", "endDate": "2023-12-31" },
+    { "name": "Reunion", "coordinates": [-21.13, 55.53], "dateRange": "Dec 2023", "color": "teal", "startDate": "2023-12-01", "endDate": "2023-12-31" },
+    { "name": "Portuguese Islands", "coordinates": [-20.00, 57.00], "dateRange": "Dec 2023", "color": "teal", "startDate": "2023-12-01", "endDate": "2023-12-31" },
+
+    { "name": "Islamabad", "coordinates": [33.68, 73.06], "dateRange": "Apr 2024", "color": "green", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+    { "name": "Gilgit", "coordinates": [35.43, 74.32], "dateRange": "Apr 2024", "color": "green", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+    { "name": "Skardu", "coordinates": [35.33, 75.55], "dateRange": "Apr 2024", "color": "green", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+    { "name": "Lahore", "coordinates": [31.58, 74.36], "dateRange": "Apr 2024", "color": "green", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+    { "name": "Hunza Valley", "coordinates": [36.25, 74.63], "dateRange": "Apr 2024", "color": "green", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+
+    { "name": "Casa Blanca", "coordinates": [33.57, -7.65], "dateRange": "Apr 2024", "color": "orange", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+    { "name": "Marrakech", "coordinates": [31.63, -7.98], "dateRange": "Apr 2024", "color": "orange", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+    { "name": "Rabat", "coordinates": [34.02, -6.84], "dateRange": "Apr 2024", "color": "orange", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+    { "name": "Blue City", "coordinates": [35.30, -5.20], "dateRange": "Apr 2024", "color": "orange", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+    { "name": "Tangiers", "coordinates": [35.77, -5.80], "dateRange": "Apr 2024", "color": "orange", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+
+    { "name": "Madrid", "coordinates": [40.42, -3.70], "dateRange": "Apr 2024", "color": "red", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+    { "name": "Seville", "coordinates": [37.39, -5.98], "dateRange": "Apr 2024", "color": "red", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+    { "name": "Malaga", "coordinates": [36.72, -4.42], "dateRange": "Apr 2024", "color": "red", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+    { "name": "Cordoba", "coordinates": [37.88, -4.78], "dateRange": "Apr 2024", "color": "red", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+    { "name": "Granada", "coordinates": [37.18, -3.59], "dateRange": "Apr 2024", "color": "red", "startDate": "2024-04-01", "endDate": "2024-04-30" },
+    { "name": "Toledo", "coordinates": [39.86, -4.03], "dateRange": "Apr 2024", "color": "red", "startDate": "2024-04-01", "endDate": "2024-04-30" }
   ]
 } 

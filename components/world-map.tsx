@@ -12,14 +12,14 @@ export function WorldMapComponent() {
   const [activeTab, setActiveTab] = useState<'map' | 'timeline'>('map');
 
   return (
-    <div className="w-full h-screen p-8">
+    <div className="w-full h-screen p-8 pt-2">
       <div className="relative z-[15]">
         <h1 className="text-2xl font-bold mb-8">Hassan &amp; Luthfiya&apos;s Travel Map</h1>
         
-        <div className="flex gap-4 mb-8 ml-8">
+        <div className="flex gap-2 mb-8 ml-8">
           <button
             onClick={() => setActiveTab('map')}
-            className={`px-4 py-2 rounded-lg ${
+            className={`px-2 py-2 rounded-lg ${
               activeTab === 'map'
                 ? 'bg-blue-500 text-white'
                 : 'bg-gray-200 hover:bg-gray-300'
@@ -40,7 +40,7 @@ export function WorldMapComponent() {
         </div>
       </div>
 
-      <div className="rounded-[40px] overflow-hidden border border-gray-200 h-[calc(100vh-250px)]">
+      <div className="rounded-[40px] overflow-hidden border border-gray-200 h-[calc(100vh-250px)] mt-4">
         {activeTab === 'map' ? (
           <MapWithNoSSR />
         ) : (

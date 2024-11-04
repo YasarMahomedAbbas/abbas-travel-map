@@ -101,10 +101,10 @@ export default function Map() {
       maxBounds={[[-90, -180], [90, 180]]}
       maxBoundsViscosity={1.0}
       style={{ 
-        height: "calc(100vh - 3rem)", 
+        height: "calc(100vh - 6rem)",
         width: "100vw", 
         position: "fixed", 
-        top: "3rem",
+        top: "6rem",
         left: 0,
         right: 0,
         bottom: 0,
