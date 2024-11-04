@@ -115,7 +115,7 @@ export default function Map() {
       worldCopyJump={true}
     >
       <LayerController />
-      <LayersControl position="topright">
+      <LayersControl position="topleft">
         <LayersControl.BaseLayer checked name="Street View">
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'

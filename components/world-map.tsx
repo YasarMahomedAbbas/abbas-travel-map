@@ -40,7 +40,7 @@ export function WorldMapComponent() {
         </div>
       </div>
 
-      <div className="rounded-[40px] overflow-hidden border border-gray-200 h-[calc(100vh-250px)] mt-4">
+      <div className="rounded-[40px] overflow-hidden border border-gray-200 h-auto mt-4">
         {activeTab === 'map' ? (
           <MapWithNoSSR />
         ) : (

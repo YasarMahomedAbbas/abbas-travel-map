@@ -42,7 +42,7 @@ export function Timeline() {
               {cities.map((city) => (
                 <div
                   key={`${city.name}-${city.coordinates.join(',')}`}
-                  className={`${city.coordinates.join(',')}`}
+                  className={`${city.coordinates.join(',')} mb-0`}
                 >
                   <div className="p-4 rounded-lg border border-gray-200 hover:border-gray-300 
                     transition-colors bg-white shadow-sm">
@@ -52,6 +52,7 @@ export function Timeline() {
                 </div>
               ))}
             </div>
+            <div className="mb-0" />
           </div>
         ))}
       </div>
